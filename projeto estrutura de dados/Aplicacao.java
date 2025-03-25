@@ -48,8 +48,8 @@ public class Aplicacao{
    //metodo de ordenaçao visto em aula, ( bubble sort e ver exemplo do TADlista)
    public static void ordenarporGasto(Cliente[] clientes){
     int n = clientes.length;
-    for(i = 0; i < n - 1; i++){
-        for(j = 0; j < n - 1 - i; j++){
+    for(int i = 0; i < n - 1; i++){
+        for(int j = 0; j < n - 1 - i; j++){
             if(clientes[j].totalGasto > clientes[j+1].totalGasto){
                 int temp = clientes[j];
                 clientes[j] = clientes[j+1];
@@ -59,6 +59,10 @@ public class Aplicacao{
             }
         }
     }
+static int remover (String cpf){
+	for (cliente )
+}
+
     
 
    }
