@@ -60,7 +60,12 @@ public class Aplicacao{
         }
     }
 static int remover (String cpf){
-	for (cliente )
+	int n = clientes.length;
+	for (int i = 0; int i < n-1; i++){
+		if (cpf == clientes[i].cpf()){
+			clientes[i].remove();
+		}
+	}
 }
 
     
