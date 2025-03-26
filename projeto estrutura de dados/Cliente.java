@@ -10,31 +10,10 @@ public class Cliente{
     public Cliente(String nome, String cpf, double totalGasto, boolean bicicletaAlugada, int quantidadeLocacoes){
         this.nome = nome;
         this.cpf = cpf;
-        this.totalGasto = totalGasto;
-        this.bicicletaAlugada = bicicletaAlugada;
-        this.quantidadeLocacoes = quantidadeLocacoes;
+        this.totalGasto = 0.0;
+        this.bicicletaAlugada = false;
+        this.quantidadeLocacoes = 0;
     }
-
-    public String getNome() {
-        return nome;
-    }
-    
-    public String getCpf() {
-        return cpf;
-    }
-    
-    public double getTotalGasto() {
-        return totalGasto;
-    }
-    
-    public boolean isBicicletaAlugada() {
-        return bicicletaAlugada;
-    }
-    
-    public int getQuantidadeLocacoes() {
-        return quantidadeLocacoes;
-    }
-    
 
     
 }
