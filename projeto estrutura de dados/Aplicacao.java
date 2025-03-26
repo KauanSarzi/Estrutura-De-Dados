@@ -50,7 +50,7 @@ public class Aplicacao{
   
 
     public static void cadastrar(Cliente c){
-      if(qtdeLista < 10){
+      if(qtdeLista < clientes.length){
           clientes[qtdeLista++] = c;
           System.out.println("Cliente cadastrado com sucesso");
       }else{
