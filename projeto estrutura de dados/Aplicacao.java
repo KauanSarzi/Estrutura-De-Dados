@@ -47,7 +47,7 @@ public class Aplicacao{
 
    }
 
-  }
+  
 
     public static void cadastrar(Cliente c){
       if(qtdeLista < 10){
@@ -84,4 +84,4 @@ static int remover (String cpf){
 
     
 
-   }
+}
