@@ -5,7 +5,7 @@ public class Aplicacao{
     public static void main(String[] args){
         Scanner sc = new Scanner();
 	    System.out.println("SISTEMA DE LOCAÇÃO DE BICICLETAS"+
-	                       "1 - CADASTRAR NOVO CLIENTE"+
+	                   "1 - CADASTRAR NOVO CLIENTE"+
                            "2 - LOCAR BICICLETA"+
                            "3 - DEVOLVER BICICLETA"+
                            "4 - REMOVER CLIENTE"+
@@ -16,8 +16,13 @@ public class Aplicacao{
 	    int a = sc.nextInt(System.in):
 	    
 	    switch(a){
-	        case 1 : ;
-	        
+	        case 1 : 
+		    System.out.prinln("Insira o nome:");
+	            String nome = sc.nextLine();
+	            System.out.println("Insira o cpf: ");
+	            String cpf = sc.nextLine();
+	            cadastrar(new Cliente(nome, cpf));
+	            break;
 	        case 2 : ;
 	        
 	        case 3 : ;
@@ -42,6 +47,15 @@ public class Aplicacao{
 
    }
 
+  }
+
+    public static void cadastrar(Cliente c){
+      if(qtdeLista < 10){
+          clientes[qtdeLista++] = c;
+          System.out.println("Cliente cadastrado com sucesso");
+      }else{
+          System.out.println("Máximo de clientes atingidos");
+      }
   }
 
 
