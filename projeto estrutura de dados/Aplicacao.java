@@ -109,10 +109,9 @@ public class Aplicacao {
     
     
     // metodo de ordenaçao visto em aula, ( bubble sort e ver exemplo do TADlista)
-    public static void ordenarporGasto(Cliente[] clientes) {
-        int n = clientes.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
+     public static void ordenarporGasto(Cliente[] clientes, int totalClientes) {
+        for (int i = 0; i < totalClientes; i++) {
+            for (int j = 0; j <totalClientes - i - 1; j++) {
                 if (clientes[j].getTotalGasto() > clientes[j + 1].getTotalGasto()) {
                     Cliente temp = clientes[j];
                     clientes[j] = clientes[j + 1];
