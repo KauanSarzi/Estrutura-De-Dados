@@ -104,7 +104,14 @@ public class Aplicacao {
 	 }
     }
 
-
+    public static void exibirCliente (String cpf){
+	int n = clientes.length;
+	for (int i = 0; int i < n-1; i++){
+		if (cpf == clientes[i].cpf()){
+            System.out.println(clientes[i].toString());
+		}
+	 }
+    }
       
     
     
