@@ -14,7 +14,9 @@ public class Cliente {
         this.quantidadeLocacoes = 0;
     }
 
-       public String getNome() {
+
+   //getters
+    public String getNome() {
         return nome;
     }
     
@@ -34,10 +36,7 @@ public class Cliente {
         return quantidadeLocacoes;
     }
     
-
-
-
-      // Setters
+      // setter
     public void setTotalGasto(double totalGasto) {
         this.totalGasto = totalGasto;
     }
@@ -55,11 +54,8 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente:\n" +
-               "Nome: " + nome + "\n" +
-               "CPF: " + cpf + "\n" +
-               "Total Gasto: " + totalGasto + "\n" +
-               "Bicicleta Alugada: " + bicicletaAlugada + "\n" +
-               "Quantidade de Locações: " + quantidadeLocacoes;
-}
+         return "Nome: " + nome + "\nCPF: " + cpf +
+               "\nTotal Gasto: R$ " + totalGasto +
+               "\nQuantidade de Locações: " + quantidadeLocacoes +
+               "\nBicicleta Alugada: " + (bicicletaAlugada ? "Sim" : "Não");
 }
