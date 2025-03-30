@@ -15,6 +15,45 @@ public class Cliente {
         this.quantidadeLocacoes = 0;
     }
 
+       public String getNome() {
+        return nome;
+    }
+    
+    public String getCpf() {
+        return cpf;
+    }
+    
+    public double getTotalGasto() {
+        return totalGasto;
+    }
+    
+    public boolean isBicicletaAlugada() {
+        return bicicletaAlugada;
+    }
+    
+    public int getQuantidadeLocacoes() {
+        return quantidadeLocacoes;
+    }
+    
+
+
+
+      // Setters
+    public void setTotalGasto(double totalGasto) {
+        this.totalGasto = totalGasto;
+    }
+
+    public void setBicicletaAlugada(boolean bicicletaAlugada) {
+        this.bicicletaAlugada = bicicletaAlugada;
+    }
+
+    public void setQuantidadeLocacoes(int quantidadeLocacoes) {
+        this.quantidadeLocacoes = quantidadeLocacoes;
+    }
+
+    
+}
+
     @Override
     public String toString() {
         return "Cliente:\n" +
