@@ -33,14 +33,14 @@ public class Aplicacao {
                 case 2:
                     System.out.print("CPF do cliente: ");
                     cpf = sc.nextLine();
-                    if (locar(cpf, clientes)) System.out.println("Bicicleta alugada!");
-                    else System.out.println("Não foi possível alugar.");
+                    if (locar(cpf, clientes)) System.out.println("Bicicleta alugada");
+                    else System.out.println("Não foi possivel alugar");
                     break;
                 case 3:
                     System.out.print("CPF do cliente: ");
                     cpf = sc.nextLine();
-                    if (devolver(cpf, clientes)) System.out.println("Bicicleta devolvida!");
-                    else System.out.println("Erro na devolução.");
+                    if (devolver(cpf, clientes)) System.out.println("Bicicleta devolvida");
+                    else System.out.println("Erro na devolução");
                     break;
                 case 4:
                     System.out.print("CPF do cliente: ");
@@ -58,14 +58,10 @@ public class Aplicacao {
                 case 7:
                     Cliente rentavel = clienteMaisRentavel(clientes);
                     if (rentavel != null) System.out.println("Cliente mais rentável:\n" + rentavel);
-                    else System.out.println("Nenhum cliente encontrado.");
+                    else System.out.println("Nenhum cliente encontrado");
                     break;
                 case 8:
-                    System.out.println("PROJETO FEITO POR:");
-                    System.out.println("NOME 1 - RA");
-                    System.out.println("NOME 2 - RA");
-                    System.out.println("NOME 3 - RA");
-                    System.out.println("Vídeo: https://www.youtube.com/SEU-LINK-AQUI");
+		    System.out.println("PROGRAMA ENCERRADO");
                     System.exit(0);
                 default:
                     System.out.println("Opção inválida");
@@ -73,7 +69,7 @@ public class Aplicacao {
         }
     }
 
-                       ///METODOS STATICS ///
+                       /////////////METODOS STATICS ////////////
                     
 
      //metodo cadastrar, atualização sera feita no switch case
@@ -83,15 +79,15 @@ public class Aplicacao {
 	        return;
 	    }
 	
-	    // Verifica se o CPF já está cadastrado
-	    for (Cliente cliente : clientes) {
+	    // verifica se o cpf já está cadastrado
+	    for (Cliente cliente : clientes) { 
 	        if (cliente != null && cliente.getCpf().equals(c.getCpf())) {
 	            System.out.println("Erro: CPF já cadastrado.");
 	            return;
 	        }
 	    }
 
-      clientes[totalClientes] = c;
+      clientes[totalClientes] = c;  // adc o cliente cadastrado a lista "clientes"
       System.out.println("Cliente cadastrado com sucesso");
    }
 
@@ -116,7 +112,7 @@ public class Aplicacao {
 
 
     public static boolean devolver (String cpf, Cliente[] clientes){ 
-
+	// mesma estrutura do locar praticamente
         //verifica se o cliente esta cadastrado
         for(Cliente c : clientes){
             if(c != null && c.getCpf().equals(cpf)){  //se o cliente tem o cpf procurado
