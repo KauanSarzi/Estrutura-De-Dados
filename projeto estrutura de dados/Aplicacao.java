@@ -112,8 +112,32 @@ public class Aplicacao {
 		}
 	 }
     }
-      
-    
+
+   public static void listarClientes() {
+    Cliente a; 
+    for (int m = clientes.length; m > 1; m--)  {
+        for (int n = 0; n < m - 1; n++) {
+            if (clientes[n].totalGasto < clientes[n + 1].totalGasto) {
+                a = clientes[n]; 
+                clientes[n] = clientes[n + 1];
+                clientes[n + 1] = a;
+            }
+        }    
+    }
+    for (int i = 0; i < clientes.length; i++) {
+        System.out.print(clientes[i].toString());
+    }
+ }
+
+public static Cliente clienteMaisRentavel() {
+    Cliente maisRentavel = null;
+    for (Cliente c : clientes) {
+        if (maisRentavel == null || c.totalGasto > maisRentavel.totalGasto) {
+            maisRentavel = c;
+        }
+    }
+    return maisRentavel;
+}         
     
     // metodo de ordenaçao visto em aula, ( bubble sort e ver exemplo do TADlista)
      public static void ordenarporGasto(Cliente[] clientes, int totalClientes) {
