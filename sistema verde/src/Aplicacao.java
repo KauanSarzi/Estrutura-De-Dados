@@ -77,14 +77,24 @@ public class Aplicacao {
                     
 
      //metodo cadastrar, atualização sera feita no switch case
-    public static void cadastrar(Cliente c, Cliente[] clientes, int totalClientes ) { 
-        if (totalClientes < 10) {
-            clientes[totalClientes] = c; // adciona a lista o cliente cadastrado
-            System.out.println("Cliente cadastrado com sucesso");
-        } else {
-            System.out.println("Máximo de clientes atingidos");
-        }
-    }  
+    public static void cadastrar(Cliente c, Cliente[] clientes, int totalClientes) {
+	    if (totalClientes >= 10) {
+	        System.out.println("Máximo de clientes atingido.");
+	        return;
+	    }
+	
+	    // Verifica se o CPF já está cadastrado
+	    for (Cliente cliente : clientes) {
+	        if (cliente != null && cliente.getCpf().equals(c.getCpf())) {
+	            System.out.println("Erro: CPF já cadastrado.");
+	            return;
+	        }
+	    }
+
+      clientes[totalClientes] = c;
+      System.out.println("Cliente cadastrado com sucesso");
+   }
+
 
 
 
