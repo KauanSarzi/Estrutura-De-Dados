@@ -6,7 +6,7 @@ public class ListaEncadeada {
     }
 
     //inserir no inicio da lista 
-    public void inserir(int valor){
+    public void inserirInicio(int valor){
         No novo = new No(valor); // crio um novo no
         novo.proximo = inicio; // atribuo o valor de inicio ao novo
         inicio = novo; // inicio recebe o novo
