@@ -11,6 +11,7 @@ public class ListaEncadeada {
         novo.proximo = inicio; // atribuo o valor de inicio ao novo
         inicio = novo; // inicio recebe o novo
     }
+    
 
 
     //inserir no fim da lista
