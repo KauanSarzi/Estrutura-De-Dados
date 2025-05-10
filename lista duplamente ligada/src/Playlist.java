@@ -16,7 +16,7 @@ public class Playlist {
     }
 
 
-    public void removerPorTitulo(String titulo) {
+   public boolean removerPorTitulo(String titulo) {
         NoDuplo aux = inicio;
         while (aux != null) {
             if (aux.getMusica().getTitulo().equalsIgnoreCase(titulo)) {
@@ -25,10 +25,12 @@ public class Playlist {
                 if (aux.getAnterior() != null) aux.getAnterior().setProximo(aux.getProximo());
                 if (aux.getProximo() != null) aux.getProximo().setAnterior(aux.getAnterior());
                 if (aux == atual) atual = aux.getProximo() != null ? aux.getProximo() : aux.getAnterior();
-                return;
+            
+                return true;
             }
             aux = aux.getProximo();
         }
+        return false; // se não encontrou nenhuma música com o título
     }
 
     public void exibirOrdemNormal() {
