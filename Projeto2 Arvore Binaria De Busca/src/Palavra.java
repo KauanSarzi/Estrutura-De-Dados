@@ -1,9 +1,8 @@
-public class Palavra {
+public class Palavra implements Comparable<Palavra> {
     private String texto;
     private int ocorrencias;
     private int numeroCaracteres;
 
-    // Construtor: recebe o texto e já define ocorrências = 1
     public Palavra(String texto) {
         this.texto = texto;
         this.ocorrencias = 1;
@@ -24,5 +23,15 @@ public class Palavra {
 
     public void incrementarOcorrencia() {
         ocorrencias++;
+    }
+
+    @Override
+    public int compareTo(Palavra outra) {
+        return this.texto.compareToIgnoreCase(outra.texto);
+    }
+
+    @Override
+    public String toString() {
+        return texto + " (ocorrências: " + ocorrencias + ", caracteres: " + numeroCaracteres + ")";
     }
 }
