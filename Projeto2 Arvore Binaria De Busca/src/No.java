@@ -1,29 +1,29 @@
-public class No<T extends Comparable<T>> {
-    private T dado;
-    private No<T> esq;
-    private No<T> dir;
+public class No {
+    private Palavra dado;
+    private No esquerda;
+    private No direita;
 
-    public No(T dado) {
+    public No(Palavra dado) {
         this.dado = dado;
     }
 
-    public T getDado() {
+    public Palavra getDado() {
         return dado;
     }
 
-    public No<T> getEsq() {
-        return esq;
+    public No getEsquerda() {
+        return esquerda;
     }
 
-    public void setEsq(No<T> esq) {
-        this.esq = esq;
+    public No getDireita() {
+        return direita;
     }
 
-    public No<T> getDir() {
-        return dir;
+    public void setEsquerda(No esquerda) {
+        this.esquerda = esquerda;
     }
 
-    public void setDir(No<T> dir) {
-        this.dir = dir;
+    public void setDireita(No direita) {
+        this.direita = direita;
     }
 }
