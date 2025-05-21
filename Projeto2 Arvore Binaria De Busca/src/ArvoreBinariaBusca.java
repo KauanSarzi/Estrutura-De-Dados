@@ -1,126 +1,114 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class ArvoreBinariaBusca {
-    No<Palavra> raiz;
-    private int totalLinhas = 0;
-    private int totalPalavras = 0;
+    private No raiz;
 
-    // Inserção: busca antes de inserir para atualizar ocorrência
-    public void inserir(String texto) {
-        Palavra existente = buscar(texto);
-        if (existente != null) {
-            existente.incrementarOcorrencia();
+   
+
+    // INSERÇAO
+    public void inserirOuAtualizar(Palavra p) {
+        raiz = inserirRec(raiz, p);
+    }
+
+    private No inserirRec(No atual, Palavra p) {
+        if (atual == null) {
+            return new No(p);
+        }
+        int comparacao = p.getPalavra().compareTo(atual.getDado().getPalavra());
+        if (comparacao < 0) {
+            atual.setEsquerda(inserirRec(atual.getEsquerda(), p));
+        } else if (comparacao > 0) {
+            atual.setDireita(inserirRec(atual.getDireita(), p));
         } else {
-            raiz = inserirRec(raiz, new Palavra(texto));
+            atual.getDado().incrementarOcorrencias();
         }
-        totalPalavras++;
+        return atual;
     }
 
-    private No<Palavra> inserirRec(No<Palavra> nodo, Palavra p) {
-        if (nodo == null) {
-            return new No<>(p);
-        }
-        int cmp = p.compareTo(nodo.getDado());
-        if (cmp < 0) {
-            nodo.setEsq(inserirRec(nodo.getEsq(), p));
-        } else if (cmp > 0) {
-            nodo.setDir(inserirRec(nodo.getDir(), p));
-        }
-        return nodo;
-    }
-
-    // Busca exata
+    // BUSCA EXATA
     public Palavra buscar(String texto) {
         return buscarRec(raiz, texto);
     }
 
-    private Palavra buscarRec(No<Palavra> nodo, String texto) {
-        if (nodo == null) return null;
-        int cmp = texto.compareToIgnoreCase(nodo.getDado().getTexto());
-        if (cmp < 0) return buscarRec(nodo.getEsq(), texto);
-        if (cmp > 0) return buscarRec(nodo.getDir(), texto);
-        return nodo.getDado();
-    }
-
-    // Busca por parte de palavra
-    public List<Palavra> buscaPorParte(String parte) {
-        List<Palavra> res = new ArrayList<>();
-        buscaPorParteRec(raiz, parte.toLowerCase(), res);
-        return res;
-    }
-
-    private void buscaPorParteRec(No<Palavra> nodo, String parte, List<Palavra> res) {
-        if (nodo == null) return;
-        String txt = nodo.getDado().getTexto().toLowerCase();
-        if (txt.contains(parte)) {
-            res.add(nodo.getDado());
-        }
-        buscaPorParteRec(nodo.getEsq(), parte, res);
-        buscaPorParteRec(nodo.getDir(), parte, res);
-    }
-
-    // Travessias
-    public void emOrdem() { emOrdemRec(raiz); }
-    private void emOrdemRec(No<Palavra> nodo) {
-        if (nodo != null) {
-            emOrdemRec(nodo.getEsq());
-            System.out.println(nodo.getDado());
-            emOrdemRec(nodo.getDir());
+    private Palavra buscarRec(No atual, String texto) {
+        if (atual == null) return null;
+        int comparacao = texto.compareTo(atual.getDado().getPalavra());
+        if (comparacao < 0) {
+            return buscarRec(atual.getEsquerda(), texto);
+        } else if (comparacao > 0) {
+            return buscarRec(atual.getDireita(), texto);
+        } else {
+            return atual.getDado();
         }
     }
 
-    public void emOrdemReversa() { emOrdemRevRec(raiz); }
-    private void emOrdemRevRec(No<Palavra> nodo) {
-        if (nodo != null) {
-            emOrdemRevRec(nodo.getDir());
-            System.out.println(nodo.getDado());
-            emOrdemRevRec(nodo.getEsq());
+    // BUSCA POR PARTE
+    public void buscarPorParte(String parte) {
+        buscarPorParteRec(raiz, parte);
+    }
+
+    private void buscarPorParteRec(No atual, String parte) {
+        if (atual == null) return;
+        buscarPorParteRec(atual.getEsquerda(), parte);
+        if (atual.getDado().getPalavra().contains(parte)) {
+            System.out.printf("%s – ocorrências: %d, caracteres: %d%n",
+                atual.getDado().getPalavra(),
+                atual.getDado().getOcorrencias(),
+                atual.getDado().getNumeroCaracteres());
         }
+        buscarPorParteRec(atual.getDireita(), parte);
     }
 
-    // Estatísticas
-    public void incrementaLinhas() { totalLinhas++; }
-    public int getTotalLinhas() { return totalLinhas; }
-    public int getTotalPalavras() { return totalPalavras; }
-    public int getTotalDistintas() { return contarNos(raiz); }
-
-    private int contarNos(No<Palavra> nodo) {
-        if (nodo == null) return 0;
-        return 1 + contarNos(nodo.getEsq()) + contarNos(nodo.getDir());
+    // EXIBIÇÃO ORDEM ALFABÉTICA REVERSA
+    public void exibirOrdemReversa() {
+        exibirOrdemReversaRec(raiz);
     }
 
-    public double mediaCaracteres() {
-        return somaCaracteres(raiz) / (double) totalPalavras;
+    private void exibirOrdemReversaRec(No atual) {
+        if (atual == null) return;
+        exibirOrdemReversaRec(atual.getDireita());
+        System.out.printf("%s – ocorrências: %d, caracteres: %d%n", atual.getDado().getPalavra(), atual.getDado().getOcorrencias(), atual.getDado().getNumeroCaracteres());
+        exibirOrdemReversaRec(atual.getEsquerda());
     }
 
-    private int somaCaracteres(No<Palavra> nodo) {
-        if (nodo == null) return 0;
-        return nodo.getDado().getNumeroCaracteres()
-             + somaCaracteres(nodo.getEsq())
-             + somaCaracteres(nodo.getDir());
+    // ESTATÍSTICAS
+    public int contarDistintas() {
+        return contarNosRec(raiz);
     }
 
-    public double taxaRedundancia() {
-        return (1.0 - (getTotalDistintas() / (double) totalPalavras)) * 100.0;
+    private int contarNosRec(No atual) {
+        if (atual == null) return 0;
+        return 1 + contarNosRec(atual.getEsquerda()) + contarNosRec(atual.getDireita());
     }
 
-    // Função inventada (exemplo): lista top 10 palavras por ocorrência
-    public void funcaoInventada() {
-        List<Palavra> todas = new ArrayList<>();
-        coleta(raiz, todas);
-        todas.sort((a,b) -> b.getOcorrencias() - a.getOcorrencias());
-        System.out.println("=== Top 10 mais frequentes ===");
-        for (int i = 0; i < Math.min(10, todas.size()); i++) {
-            System.out.printf("%dº %s\n", i+1, todas.get(i));
+    public int somaCaracteresTotal() {
+        return somaCaracteresRec(raiz);
+    }
+
+    private int somaCaracteresRec(No atual) {
+        if (atual == null) return 0;
+        Palavra p = atual.getDado();
+        return p.getNumeroCaracteres() * p.getOcorrencias()
+             + somaCaracteresRec(atual.getEsquerda())
+             + somaCaracteresRec(atual.getDireita());
+    }
+
+    // FUNÇÃO INVENTADA: CONTAGEM DE FREQUÊNCIA DE LETRAS
+    public void contarLetras(int[] freq) {
+        contarLetrasRec(raiz, freq);
+    }
+
+    private void contarLetrasRec(No atual, int[] freq) {
+        if (atual == null) return;
+        contarLetrasRec(atual.getEsquerda(), freq);
+        String w = atual.getDado().getPalavra();
+        int vezes = atual.getDado().getOcorrencias();
+        for (char c : w.toCharArray()) {
+            if (c >= 'a' && c <= 'z') {
+                freq[c - 'a'] += vezes;
+            }
         }
+        contarLetrasRec(atual.getDireita(), freq);
     }
+    
 
-    private void coleta(No<Palavra> nodo, List<Palavra> lista) {
-        if (nodo == null) return;
-        lista.add(nodo.getDado());
-        coleta(nodo.getEsq(), lista);
-        coleta(nodo.getDir(), lista);
-    }
 }
 
