@@ -15,7 +15,8 @@ public class ArvoreBinariaBusca {
         int comparacao = p.getPalavra().compareTo(atual.getDado().getPalavra());
         if (comparacao < 0) {
             atual.setEsquerda(inserirRec(atual.getEsquerda(), p));
-        } else if (comparacao > 0) {
+        } 
+        if (comparacao > 0) {
             atual.setDireita(inserirRec(atual.getDireita(), p));
         } else {
             atual.getDado().incrementarOcorrencias();
