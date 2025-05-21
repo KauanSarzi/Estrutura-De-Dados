@@ -1,16 +1,16 @@
-public class Palavra implements Comparable<Palavra> {
-    private String texto;
+public class Palavra {
+    private String palavra;
     private int ocorrencias;
     private int numeroCaracteres;
 
-    public Palavra(String texto) {
-        this.texto = texto;
+    public Palavra(String palavra) {
+        this.palavra = palavra;
         this.ocorrencias = 1;
-        this.numeroCaracteres = texto.length();
+        this.numeroCaracteres = palavra.length();
     }
 
-    public String getTexto() {
-        return texto;
+    public String getPalavra() {
+        return palavra;
     }
 
     public int getOcorrencias() {
@@ -21,17 +21,7 @@ public class Palavra implements Comparable<Palavra> {
         return numeroCaracteres;
     }
 
-    public void incrementarOcorrencia() {
+    public void incrementarOcorrencias() {
         ocorrencias++;
-    }
-
-    @Override
-    public int compareTo(Palavra outra) {
-        return this.texto.compareToIgnoreCase(outra.texto);
-    }
-
-    @Override
-    public String toString() {
-        return texto + " (ocorrências: " + ocorrencias + ", caracteres: " + numeroCaracteres + ")";
     }
 }
