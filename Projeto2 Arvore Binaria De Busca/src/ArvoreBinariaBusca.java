@@ -4,7 +4,7 @@ public class ArvoreBinariaBusca {
    
 
     // INSERÇAO
-    public void inserirOuAtualizar(Palavra p) {
+    public void inserir(Palavra p) {
         raiz = inserirRec(raiz, p);
     }
 
