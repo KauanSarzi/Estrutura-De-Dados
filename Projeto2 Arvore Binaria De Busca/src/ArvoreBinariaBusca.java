@@ -92,7 +92,7 @@ public class ArvoreBinariaBusca {
              + somaCaracteresRec(atual.getDireita());
     }
 
-    // FUNÇÃO INVENTADA: CONTAGEM DE FREQUÊNCIA DE LETRAS
+    // Funçao inventada contagem por frequencia de letras
     public void contarLetras(int[] freq) {
         contarLetrasRec(raiz, freq);
     }
