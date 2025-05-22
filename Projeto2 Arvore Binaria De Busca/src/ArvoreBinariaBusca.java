@@ -58,7 +58,7 @@ public class ArvoreBinariaBusca {
         buscarPorParteRec(atual.getDireita(), parte);
     }
 
-    // EXIBIÇÃO ORDEM ALFABÉTICA REVERSA
+    // EXIBICAO REVERSA
     public void exibirOrdemReversa() {
         exibirOrdemReversaRec(raiz);
     }
@@ -70,7 +70,7 @@ public class ArvoreBinariaBusca {
         exibirOrdemReversaRec(atual.getEsquerda());
     }
 
-    // ESTATÍSTICAS
+    // ESTATISTICAS
     public int contarDistintas() {
         return contarNosRec(raiz);
     }
