@@ -23,8 +23,3 @@ Este repositório reúne exercícios e pequenos projetos desenvolvidos em Java p
 
 Algumas pastas já possuem um diretório `bin/` com classes compiladas. Caso encontre erros de compilação relacionados a classes ausentes (por exemplo, a classe `Fila` utilizada em `ARVORE BINARIA GENERICA`), crie ou adicione a dependência necessária antes da execução.
 
-## Próximos passos sugeridos
-
-- Normalizar os nomes das pastas para remover espaços e facilitar a automação de builds.
-- Adicionar testes automatizados e instruções de execução específicas por projeto.
-- Complementar o protótipo de árvore binária genérica com a implementação da fila de apoio e exemplos de uso mais completos.
