@@ -12,7 +12,7 @@ Este repositório reúne exercícios e pequenos projetos desenvolvidos em Java p
 | `ARVORE BINARIA GENERICA/` | Protótipo de árvore binária que realiza inserção em largura preservando referência ao pai, percorre a árvore em diferentes ordens (pré, em e pós-ordem), imprime ancestrais e percorre em largura. A implementação presume uma classe auxiliar `Fila` não incluída no repositório. |
 | `Projeto2 Arvore Binaria De Busca/` | Aplicação de linha de comando que indexa textos em uma árvore binária de busca. Permite carregar arquivos `.txt`, calcular estatísticas (linhas, total de palavras, média de caracteres, redundância), buscar palavras exatas ou parciais, exibir a árvore em ordem reversa e contabilizar a frequência de letras. |
 | `sistema verde/` | Sistema completo de locação de bicicletas em console, armazenando até 10 clientes e oferecendo cadastro, locação, devolução, remoção, exibição, ordenação por gasto (bubble sort) e identificação do cliente mais rentável. |
-| `projeto estrutura de dados/` | Primeira versão do sistema de locação de bicicletas. Mantém os mesmos métodos utilitários, mas o fluxo principal ainda está incompleto e serve como rascunho da solução final em `sistema verde/`. |
+
 
 ## Como executar os exemplos
 
