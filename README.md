@@ -20,5 +20,4 @@ Este repositório reúne exercícios e pequenos projetos desenvolvidos em Java p
 3. **Compile os arquivos** – Utilize `javac -d bin src/*.java`. Ajuste o caminho quando houver subpacotes ou mais de um diretório fonte.
 4. **Execute o programa** – Rode `java -cp bin NomeDaClassePrincipal`. Verifique a classe `App` ou `Aplicacao` correspondente em cada pasta.
 
-Algumas pastas já possuem um diretório `bin/` com classes compiladas. Caso encontre erros de compilação relacionados a classes ausentes (por exemplo, a classe `Fila` utilizada em `ARVORE BINARIA GENERICA`), crie ou adicione a dependência necessária antes da execução.
-
+Algumas pastas já possuem um diretório `bin/` com classes compiladas.
