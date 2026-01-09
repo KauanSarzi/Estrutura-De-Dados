@@ -310,7 +310,6 @@ java -cp bin Aplicacao
 
 **Kauan Sarzi**
 
-- GitHub: [@KauanSarzi](https://github.com/KauanSarzi)
 - LinkedIn: [Kauan Sarzi](https://linkedin.com/in/kauan-sarzi)
 - Email: kauansarzi24@gmail.com
 
